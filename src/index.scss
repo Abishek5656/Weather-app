@@ -1,0 +1,32 @@
+@import "./mixies.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  @include lg {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.main_weatherWidget {
+  @include lg {
+    display: flex;
+    flex: 0.8;
+  }
+}
+
+.main_dashboard {
+  @include lg {
+    display: flex;
+    flex: 2;
+  }
+}

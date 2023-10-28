@@ -1,0 +1,198 @@
+@import "../../mixies.scss";
+
+.dashboard {
+  width: 100%;
+  height: 100%;
+  background-color: #100e1d;
+  padding: 0.75rem;
+  // border: 1px solid seagreen;
+
+  .weather_report {
+    max-width: 800px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    // border: 1px solid red;
+    display: flex;
+   flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    // border: 1px solid red;
+    .summary-cards {
+      border: 1px solid green;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .weather-highlights-info {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      // border: 1px solid yellow;
+
+      .weather-highlights-heading {
+        font-family: Raleway;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        letter-spacing: 0em;
+        color: #e7e7eb;
+        margin-bottom: 1rem;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        // border: 1px solid purple;
+
+        @include md {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          align-content: center;
+          justify-content: center;
+        }
+
+        // @include lg {
+        //   display: grid;
+        //   grid-template-columns: repeat(2, 1fr);
+        // }
+        .wind-status-details {
+          width: 328px;
+          height: 204px;
+          background-color: #1e213a;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+
+          .status {
+            font-family: Raleway;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 42px;
+            letter-spacing: 0em;
+            color: #e7e7eb;
+          }
+          .speed {
+            font-family: Raleway;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 42px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #e7e7eb;
+          }
+          .direction {
+            font-family: Raleway;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #e7e7eb;
+            margin-right: 10px;
+          }
+        }
+
+        .humidity-status-details {
+          width: 328px;
+          height: 204px;
+          background-color: #1e213a;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+
+          .humidity-text {
+            font-family: Raleway;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+          .humidity-value {
+            font-family: Raleway;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 75px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+        }
+
+        .visibility-status-info {
+          width: 328px;
+          height: 204px;
+          background-color: #1e213a;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          .visibility-label {
+            font-family: Raleway;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+          .visibility-distance {
+            font-family: Raleway;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 42px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+        }
+
+        .air-pressure-details {
+          width: 328px;
+          height: 204px;
+          background-color: #1e213a;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          .air-pressure-label {
+            font-family: Raleway;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+
+          .air-pressure-value {
+            font-family: Raleway;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 42px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #e7e7eb;
+          }
+        }
+      }
+    }
+  }
+}
