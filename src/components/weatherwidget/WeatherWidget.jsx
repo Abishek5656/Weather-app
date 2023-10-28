@@ -48,7 +48,9 @@ const WeatherWidget = ({ weatherData, timeZoneData }) => {
       </div>
       <div className="weatherCard_temperature-info">
         <p className="temperature">
-          {Number(Math.floor(weatherData?.main?.temp))}
+        {typeof weatherData?.main?.temp === 'number'
+    ? weatherData.main.temp.toFixed(0).toString()
+    : 'N/A'}
         </p>
         <span className="units">
           &deg;<span className="degree">C</span>
