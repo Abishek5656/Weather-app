@@ -18,7 +18,7 @@ import {
   LightRain,
 } from "../../assets/index.js";
 const WeatherWidget = ({ weatherData, timeZoneData }) => {
-  const [menu, showMenu] = useState(true);
+
 
   const weatherIcons = {
     "few clouds": LightCloud,
@@ -35,18 +35,6 @@ const WeatherWidget = ({ weatherData, timeZoneData }) => {
   return (
     <div className="weatherCard">
 
-
-
-      {/* {
-        menu ? (
-          <main>
-            <RxCross2 />
-            <div>
-               
-            </div>
-          </main>
-        ) : null;
-      } */}
       <div className="weatherCard_search">
         <input type="text" placeholder="Search for places" />
         <BiCurrentLocation className="weatherCard_location-Icon" />
