@@ -12,6 +12,74 @@
     padding: 1.5rem;
   }
 
+  .menu {
+    border: 1px solid red;
+    height: 80%;
+
+    .menu_cross {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 30px;
+      width: 20px;
+      margin-bottom: 2rem;
+
+      .menu_cross-icon {
+        height: 100%;
+        width: 100%;
+        font-size: 25px;
+        color: white;
+      }
+    }
+
+    .menu_search {
+      height: 40px;
+      display: flex;
+      gap: 10px;
+      padding: 0 1rem;
+
+      .menu_search-location {
+        border: 1px solid gray;
+        height: 40px;
+        flex: 1;
+        margin-bottom: 1rem;
+
+        input {
+          border: none;
+          height: 100%;
+          padding: 0 10px;
+          border: none;
+          outline: none;
+          background: transparent;
+        }
+      }
+
+      .search-btn {
+        flex: 0.4;
+        height: 100%;
+        background-color: #3c47e9;
+        border: none;
+        outline: none;
+        color: white;
+      }
+    }
+
+    .location_btn {
+      margin: 2rem;
+      width: 80%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: gray;
+      font-size: 25px;
+
+      &:hover {
+        border: 2px solid gray;
+        cursor: pointer;
+      }
+    }
+  }
+
   .weatherCard_search {
     display: flex;
     justify-content: space-between;
