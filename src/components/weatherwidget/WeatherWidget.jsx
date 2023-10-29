@@ -41,7 +41,6 @@ const WeatherWidget = ({
 
   const handleSetLocation = (value) => {
     setLocation(value);
-    showMenu(false);
   };
 
   return (
@@ -65,7 +64,7 @@ const WeatherWidget = ({
               />
             </div>
             {/* search */}
-            <button className="search-btn">Search</button>
+            <button className="search-btn" onClick={() => showMenu(!menu)}>Search</button>
           </div>
           {/* location buttons */}
           <button
