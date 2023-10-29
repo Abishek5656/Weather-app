@@ -17,9 +17,14 @@ import {
   Shower,
   LightRain,
 } from "../../assets/index.js";
-const WeatherWidget = ({ weatherData, timeZoneData }) => {
 
-
+const WeatherWidget = ({
+  weatherData,
+  timeZoneData,
+  location,
+  setLocation,
+}) => {
+  const [menu, showMenu] = useState(false);
   const weatherIcons = {
     "few clouds": LightCloud,
     "moderate rain": LightRain,
@@ -32,48 +37,91 @@ const WeatherWidget = ({ weatherData, timeZoneData }) => {
 
   const weatherDescription = weatherData?.weather[0]?.description;
   const weatherIcon = weatherIcons[weatherDescription];
+
+  const handleSetLocation = (value) => {
+    setLocation(value);
+    showMenu(false);
+  };
+
   return (
     <div className="weatherCard">
-
-      <div className="weatherCard_search">
-        <input type="text" placeholder="Search for places" />
-        <BiCurrentLocation className="weatherCard_location-Icon" />
-      </div>
-
-      <div className="weatherCard_img">
-        {/* <div className="backdrop">
-          <img src={ CloudBackGround} alt="" />
-        </div> */}
-        {weatherIcon ? <img src={weatherIcon} alt="" /> : null}
-      </div>
-      <div className="weatherCard_temperature-info">
-        <p className="temperature">
-        {typeof weatherData?.main?.temp === 'number'
-    ? weatherData.main.temp.toFixed(0).toString()
-    : 'N/A'}
-        </p>
-        <span className="units">
-          &deg;<span className="degree">C</span>
-        </span>
-      </div>
-
-      <h1 className="weather_season">{weatherData?.weather[0].main}</h1>
-
-      <div className="date-container">
-        {/* <p>{timeZoneData[0]?.day}</p> */}
-        <p>Today</p>
-        <p>.</p>
-        <p>
-          {timeZoneData[0]?.day}&#44;&nbsp;{timeZoneData[0]?.date}&nbsp;
-          {timeZoneData[0]?.year}
-        </p>
-        {/* <p>Fri,27,2023</p> */}
-      </div>
-
-      <div className="location_container">
-        <IoLocationSharp />
-        <p>{weatherData?.name}</p>
-      </div>
+      {menu && (
+        <main className="menu">
+          {/* menu cross */}
+          <div className="menu_cross">
+            <RxCross2
+              className="menu_cross-icon"
+              onClick={() => showMenu(!menu)}
+            />
+          </div>
+          {/* menu search */}
+          <div className="menu_search">
+            <div className="menu_search-location">
+              <input
+                type="text"
+                placeholder="search location"
+                value={location}
+              />
+            </div>
+            {/* search */}
+            <button className="search-btn">Search</button>
+          </div>
+          {/* location buttons */}
+          <button
+            className="location_btn"
+            onClick={() => handleSetLocation("Delhi")}
+          >
+            Delhi
+          </button>
+          <button
+            className="location_btn"
+            onClick={() => handleSetLocation("Barcelona")}
+          >
+            Barcelona
+          </button>
+          <button
+            className="location_btn"
+            onClick={() => handleSetLocation("Long Beach")}
+          >
+            Long Beach
+          </button>
+        </main>
+      )}
+      {!menu && (
+        <>
+          <div className="weatherCard_search">
+            <input type="text" placeholder="Search for places" />
+            <BiCurrentLocation className="weatherCard_location-Icon" />
+          </div>
+          <div className="weatherCard_img">
+            {weatherIcon ? <img src={weatherIcon} alt="" /> : null}
+          </div>
+          <div className="weatherCard_temperature-info">
+            <p className="temperature">
+              {typeof weatherData?.main?.temp === "number"
+                ? weatherData.main.temp.toFixed(0).toString()
+                : "N/A"}
+            </p>
+            <span className="units">
+              &deg;
+              <span className="degree">C</span>
+            </span>
+          </div>
+          <h1 className="weather_season">{weatherData?.weather[0].main}</h1>
+          <div className="date-container">
+            <p>Today</p>
+            <p>.</p>
+            <p>
+              {timeZoneData[0]?.day}&#44;&nbsp;{timeZoneData[0]?.date}&nbsp;
+              {timeZoneData[0]?.year}
+            </p>
+          </div>
+          <div className="location_container">
+            <IoLocationSharp />
+            <p>{weatherData?.name}</p>
+          </div>
+        </>
+      )}
     </div>
   );
 };
