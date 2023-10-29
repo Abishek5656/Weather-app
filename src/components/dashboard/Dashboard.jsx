@@ -14,15 +14,11 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
         {/*summary-cards  */}
         <div className="summary-cards">
           <Summary forecast={forecast} dateAndTime={dateAndTime}/>
-          {/* <Summary />
-          <Summary />
-          <Summary />
-          <Summary /> */}
         </div>
         {/*weather-highlights-info  */}
         <div className="weather-highlights-info">
           <h1 className="weather-highlights-heading">Today's Highlights</h1>
-          {/* container */}
+         
           <div className="container">
             {/* wind-status-details 1st*/}
             <div className="wind-status-details">
@@ -32,9 +28,7 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
                 <FaLocationArrow /> WSW
               </p>
             </div>
-
             {/* humidity-status-details 2nd*/}
-
             <div className="humidity-status-details">
               <p className="humidity-text">Humidity</p>
               <p className="humidity-value">{humidityValue}%</p>
