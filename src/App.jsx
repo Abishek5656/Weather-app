@@ -7,15 +7,16 @@ function App() {
   const API_KEY = import.meta.env.VITE_APP_API_KEY;
   const defaultLat = "51.5073";
   const defaultLong = "-0.1277";
-  const [latitude, setLatitude] = useState(""); // Default latitude
-  const [longitude, setLongitude] = useState(""); // Default longitude
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState(""); 
 
   const [timeZoneData, setTimeZoneData] = useState([]);
   const [timeZone, setTimeZone] = useState(0);
   const [weatherData, setWeatherData] = useState(null);
   const [forecast, setForecastData] = useState([]);
   const [dateAndTime, setDateAndTime] = useState([]);
-  // const [time, setTime] = useState();
+  const [location, setLocation] = useState(null);
+  
 
   const fetchWeatherDataApi = async (lat, lon) => {
     try {
@@ -25,8 +26,7 @@ function App() {
         )}&appid=${API_KEY}&units=metric&units=imperial`
       );
       const data = await res.json();
-      // console.log(data);
-      // console.log(data.dt)
+  
       setWeatherData(data);
       setTimeZone(data.dt);
     } catch (error) {
@@ -48,6 +48,22 @@ function App() {
     }
   };
 
+  const fetchlocation = async () => {
+    try {
+      const res = await fetch(`${BASE_URL}weather?q=${location}&appid=${API_KEY}&units=metric&units=imperial`);
+      const data = await res.json();
+      setLatitude(data?.coord?.lat);
+      setLongitude(data?.coord?.lon)
+    } catch (error) {
+      console.log(error);
+    }
+  } 
+
+  useEffect( () => {
+    fetchlocation()
+  }, [location])
+
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -61,15 +77,6 @@ function App() {
       }
     );
   }, []);
-
-  // useEffect(() => {
-  //   if (!latitude && !longitude) {
-  //     fetchWeatherDataApi(defaultLat, defaultLong);
-
-  //     fetchWeatherforcast(defaultLat, defaultLong);
-
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (latitude && longitude) {
@@ -126,32 +133,25 @@ function App() {
 
     setTimeZoneData(results);
     setDateAndTime(results.slice(1));
-    // setDateAndTime(results.slice(1)) // Add this line to return the array of results
+  
   };
 
-  // console.log(timeZoneData);
-
-  // console.log(weatherData)
   useEffect(() => {
     if (timeZone) {
       getTimestampsAndDates(timeZone);
-      // console.log(timeZoneData[0])
-      // console.log(dateAndTime)
     }
-    // console.log(timeZoneData);
-    // console.log("dataand time");
-    // console.log(dateAndTime);
-    // console.log(timeZoneData);
-    // console.log(timeZoneData[0]);
-    // console.log(timeZoneData[0]["date"]);
-    // console.log(timeZoneData[0].month);
+  
   }, [timeZone]);
 
-  // console.log(weatherData?.dt)
   return (
     <div className="main">
       <div className="main_weatherWidget">
-        <WeatherWidget weatherData={weatherData} timeZoneData={timeZoneData} />
+      <WeatherWidget
+  weatherData={weatherData}
+  timeZoneData={timeZoneData}
+  setLocation={setLocation} 
+  location={location} 
+/>
       </div>
 
       <div className="main_dashboard">
