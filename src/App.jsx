@@ -1,6 +1,6 @@
 import WeatherWidget from "./components/weatherwidget/WeatherWidget.jsx";
 import Dashboard from "./components/dashboard/Dashboard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback  } from "react";
 
 function App() {
   const BASE_URL = "https:/api.openweathermap.org/data/2.5/";
@@ -17,6 +17,23 @@ function App() {
   const [dateAndTime, setDateAndTime] = useState([]);
   const [location, setLocation] = useState(null);
   
+
+  const getLocation = useCallback(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      },
+      (error) => {
+        console.error("Error getting geolocation:", error);
+        setLatitude(defaultLat);
+        setLongitude(defaultLong);
+      }
+    );
+  }, [setLatitude, setLongitude]);
+
+
+
 
   const fetchWeatherDataApi = async (lat, lon) => {
     try {
@@ -151,6 +168,7 @@ function App() {
   timeZoneData={timeZoneData}
   setLocation={setLocation} 
   location={location} 
+  getLocation={getLocation}
 />
       </div>
 
