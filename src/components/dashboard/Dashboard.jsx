@@ -21,7 +21,7 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
          
           <div className="container">
             {/* wind-status-details 1st*/}
-            <div className="wind-status-details">
+            <div className="status-card">
               <p className="status">Wind status</p>
               <p className="speed">{weatherData?.wind?.speed}mph</p>
               <p className="direction">
@@ -29,7 +29,7 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
               </p>
             </div>
             {/* humidity-status-details 2nd*/}
-            <div className="humidity-status-details">
+            <div className="status-card">
               <p className="humidity-text">Humidity</p>
               <p className="humidity-value">{humidityValue}%</p>
               <input
@@ -49,14 +49,14 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
 
             {/* visibility-status-info 3rd*/}
 
-            <div className="visibility-status-info">
+            <div className="status-card">
               <p className="visibility-label">Visibility</p>
               <p className="visibility-distance">{(weatherData?.visibility/1609).toFixed(2)} miles</p>
             </div>
             {/*  */}
 
             {/* air-pressure-status */}
-            <div className="air-pressure-details">
+            <div className="status-card">
               <p className="air-pressure-label">Air Pressure</p>
               <p className="air-pressure-value">{weatherData?.main?.pressure}mb</p>
             </div>
