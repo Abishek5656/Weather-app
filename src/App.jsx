@@ -23,6 +23,7 @@ function App() {
       (position) => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+        setLocation("");
       },
       (error) => {
         console.error("Error getting geolocation:", error);
@@ -78,7 +79,7 @@ function App() {
 
   useEffect( () => {
     fetchlocation()
-  }, [location])
+  },[location])
 
 
   useEffect(() => {
