@@ -5,22 +5,20 @@
   height: 100%;
   background-color: #100e1d;
   padding: 0.75rem;
-  // border: 1px solid seagreen;
+  
 
   .weather_report {
     max-width: 800px;
     height: 100%;
     width: 100%;
     margin: 0 auto;
-    // border: 1px solid red;
     display: flex;
    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    // border: 1px solid red;
+   
     .summary-cards {
-      // border: 1px solid green;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -35,7 +33,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      // border: 1px solid yellow;
 
       .weather-highlights-heading {
         font-family: Raleway;
@@ -52,7 +49,6 @@
         align-items: center;
         gap: 1rem;
 
-        // border: 1px solid purple;
 
         @include md {
           display: grid;
@@ -61,10 +57,7 @@
           justify-content: center;
         }
 
-        // @include lg {
-        //   display: grid;
-        //   grid-template-columns: repeat(2, 1fr);
-        // }
+      
         .wind-status-details {
           width: 328px;
           height: 204px;
