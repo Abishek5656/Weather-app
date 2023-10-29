@@ -23,6 +23,7 @@ const WeatherWidget = ({
   timeZoneData,
   location,
   setLocation,
+  getLocation
 }) => {
   const [menu, showMenu] = useState(false);
   const weatherIcons = {
@@ -91,7 +92,7 @@ const WeatherWidget = ({
         <>
           <div className="weatherCard_search">
             <input type="text" placeholder="Search for places" onFocus={() => showMenu(!menu)}/>
-            <BiCurrentLocation className="weatherCard_location-Icon" />
+            <BiCurrentLocation onClick={getLocation} className="weatherCard_location-Icon" />
           </div>
           <div className="weatherCard_img">
             {weatherIcon ? <img src={weatherIcon} alt="" /> : null}
