@@ -27,7 +27,7 @@ const Dashboard = ({ forecast, weatherData, dateAndTime}) => {
             {/* wind-status-details 1st*/}
             <div className="wind-status-details">
               <p className="status">Wind status</p>
-              <p className="speed">12mph</p>
+              <p className="speed">{weatherData?.wind?.speed}mph</p>
               <p className="direction">
                 <FaLocationArrow /> WSW
               </p>
