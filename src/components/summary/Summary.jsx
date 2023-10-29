@@ -25,16 +25,7 @@ const Summary = ({ forecast, dateAndTime }) => {
   // };
   return (
     <div className="summary">
-    {/* //   <div className="weatherForcast">
-    //     <h2 className="date_info">Today</h2>
-    //     <div className="weather_condition-image">
-    //       <img src={Thunderstorm} alt="" />
-    //     </div>
-    //     <div className="weather-condition-info">
-    //       <span>12°C</span>
-    //       <span>25°C</span>
-    //     </div>
-    //   </div> */}
+ 
       {
         forecast.map( (forecast, index) => (
           
@@ -50,24 +41,7 @@ const Summary = ({ forecast, dateAndTime }) => {
         </div>
         ))
       }
-      \
-
-
-      {/* 
-       forecast.map( (forecast, index) => (
-          
-          <div key={index} className="weatherForcast">
-          {/* <h2 className="date_info">Today</h2> */}
-          {/* <h2 className="date_info">{dateAndTime[index]?.day}&#44;&nbsp;{dateAndTime[index]?.date}&nbsp;{dateAndTime[index]?.year}</h2>
-          <div className="weather_condition-image">
-            <img src={Thunderstorm} alt="" />
-          </div>
-          <div className="weather-condition-info">
-            <span>{Number(Math.floor(forecast?.main?.temp_max))}°C</span>
-            <span>{Number(Math.floor(forecast.main?.temp_min))}°C</span>
-          </div>
-        </div>
-       )) */}
+    
     </div>
   );
 };
