@@ -1,8 +1,8 @@
 import "./style.scss";
-import React, { useEffect, useState } from "react";
+import  {  useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoLocationSharp } from "react-icons/io5";
-import { BiSearch } from "react-icons/bi";
+
 import { RxCross2 } from "react-icons/rx";
 import {
   Clear,
