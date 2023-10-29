@@ -90,7 +90,7 @@ const WeatherWidget = ({
       {!menu && (
         <>
           <div className="weatherCard_search">
-            <input type="text" placeholder="Search for places" />
+            <input type="text" placeholder="Search for places" onFocus={() => showMenu(!menu)}/>
             <BiCurrentLocation className="weatherCard_location-Icon" />
           </div>
           <div className="weatherCard_img">
